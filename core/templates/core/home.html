@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LowPocEat</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/scripts.js' %}" defer></script>
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <div class="logo">
+            <h1>LowPocEat</h1>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="{% url 'core:home' %}">Home</a></li>
+            <li><a href="{% url 'core:meals' %}">Meals</a></li>
+            <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+            <li><a href="{% url 'core:about' %}">About Us</a></li>
+        </ul>
+        <!-- Hamburger Button -->
+        <div class="hamburger-menu" id="hamburger-menu">
+            <img src="{% static 'images/foodiconog.JPG' %}" alt="Menu">
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'core:profile' %}">Profile</a></li>
+                <li><a href="{% url 'core:logout' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'core:login' %}">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Welcome to LowPocEat</h1>
+       
+        <div class="meal-list">
+            {% for meal in meals %}
+                <div class="meal-card">
+                    <h4>{{ meal.name }}</h4>
+                    <p>{{ meal.description }}</p>
+                    <p>Price: ₹{{ meal.price }}</p>
+                    <p>Nutrition: {{ meal.nutrition }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

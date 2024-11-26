@@ -1,0 +1,9 @@
+<!-- core/templates/core/meal_detail.html -->
+{% extends 'home.html' %}
+
+{% block content %}
+  <h2>{{ meal.name }}</h2>
+  <p>{{ meal.instructions }}</p>
+  <p>Price: {{ meal.price }}</p>
+  <!-- Add more details about the meal here -->
+{% endblock %}

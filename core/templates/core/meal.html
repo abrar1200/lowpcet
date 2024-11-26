@@ -1,0 +1,10 @@
+<h1>All Meals</h1>
+<div class="meal-list">
+    {% for meal in meals %}
+        <div class="meal-card">
+            <h4>{{ meal.name }}</h4>
+            <p>{{ meal.description }}</p>
+            <p>Price: ₹{{ meal.price }}</p>
+        </div>
+    {% endfor %}
+</div>
