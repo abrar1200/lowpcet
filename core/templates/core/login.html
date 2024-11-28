@@ -1,20 +1,36 @@
-
-{% extends 'base_generic.html' %}
-
-{% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
-{% endblock %}
-
-{% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LowPocEat</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="login-page">
+        <div class="form-container">
+            <div class="form-header">
+                <h1>Welcome Back!</h1>
+                <p>Log in to your account to start planning your meals.</p>
+            </div>
+            <form method="post" action="{% url 'core:login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Log In</button>
+            </form>
+            <div class="extra-links">
+                <p>Don't have an account? <a href="{% url 'core:signup' %}">Sign Up</a></p>
+                <p><a href="{% url 'core:password_reset' %}">Forgot Password?</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,6 +4,11 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Meal
 from django.core.exceptions import ObjectDoesNotExist
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form
 
 def about(request):
     return render(request, 'core/about.html')

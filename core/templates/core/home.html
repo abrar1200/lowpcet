@@ -20,14 +20,12 @@
             <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
             <li><a href="{% url 'core:about' %}">About Us</a></li>
         </ul>
-        <!-- Hamburger Button -->
-        <div class="hamburger-menu" id="hamburger-menu">
-            <img src="{% static 'images/foodiconog.JPG' %}" alt="Menu">
-        </div>
-    </nav>
+        <div class="hamburger-menu">
+        <img src="{% static 'images/foodiconog.JPG' %}" alt="Menu">
+    </div>
 
     <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
+    <div class="sidebar">
         <ul>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'core:profile' %}">Profile</a></li>
@@ -37,21 +35,6 @@
             {% endif %}
         </ul>
     </div>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1>Welcome to LowPocEat</h1>
-       
-        <div class="meal-list">
-            {% for meal in meals %}
-                <div class="meal-card">
-                    <h4>{{ meal.name }}</h4>
-                    <p>{{ meal.description }}</p>
-                    <p>Price: ₹{{ meal.price }}</p>
-                    <p>Nutrition: {{ meal.nutrition }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
+            </nav>
 </body>
 </html>
