@@ -5,236 +5,283 @@
     box-sizing: border-box;
 }
 
-/* Body */
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.6;
     background-color: #f4f4f9;
     color: #333;
 }
 
-/* Navbar */
-.top-navbar {
+/* Header */
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2E3A59;
+    position: relative;
+}
+
+/* Centered Logo */
+.logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
     color: white;
-    padding: 10px 20px;
 }
 
-.top-navbar .logo h1 {
-    font-size: 1.8rem;
-}
-
-.navbar-links {
+/* Navigation */
+.nav-links {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 
-.navbar-links li {
-    margin: 0 15px;
+.nav-item {
+    margin-left: 20px;
 }
 
-.navbar-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-    transition: color 0.3s;
-}
-
-.navbar-links a:hover {
-    color: #FFD700;
-}
-
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
-/* Hamburger Menu */
-.hamburger-menu {
-    position: fixed;
-    left: 10px; /* Align to the left */
-    top: 10px;
+/* User Icon and Dropdown */
+.user-icon {
+    position: relative;
     cursor: pointer;
-    z-index: 1000;
 }
 
-.hamburger-menu img {
-    width: 40px;
+.user-icon-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     transition: transform 0.3s ease;
 }
 
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 200px;
-    height: 100%;
-    background-color: #2E3A59;
+/* Hover Effect for Icon */
+.user-icon:hover .user-icon-img {
+    transform: scale(1.2); /* Icon enlarges slightly */
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #444;
     color: white;
-    display: none; /* Hidden by default */
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 999;
 }
 
-.sidebar ul {
-    list-style: none;
-}
-
-.sidebar ul li {
-    margin: 15px 0;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.2rem;
-    transition: color 0.3s;
-}
-
-.sidebar ul li a:hover {
-    color: #FFD700;
-}
-
-/* Show Sidebar on Hover */
-.hamburger-menu:hover + .sidebar,
-.sidebar:hover {
+/* Show Dropdown on Hover */
+.user-icon:hover .dropdown {
     display: block;
 }
 
-/* Main Content */
-.main-content {
-    padding: 30px;
-}
-
-.meal-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.meal-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.meal-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-/* General Reset */
-* {
-    margin: 0;
+.dropdown ul {
+    list-style: none;
     padding: 0;
-    box-sizing: border-box;
+    margin: 0;
 }
 
-/* Body */
-body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #FF8A00, #E52E71);
-    color: #333;
+.dropdown ul li {
+    margin: 5px 0;
+}
+
+.dropdown ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.dropdown ul li a:hover {
+    background-color: #e52e71;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(90deg, #ff7b54, #e52e71);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+}
+
+.hero p {
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e52e71;
+}
+
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.features h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* Scoped Login Page Styles */
+.login-page {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
-}
-
-/* Login Page Container */
-.login-page {
-    background-color: #ffffff;
-    width: 90%;
-    max-width: 400px;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-/* Form Header */
-.form-header h1 {
-    font-size: 1.8rem;
+    background: linear-gradient(135deg, #FF8A00, #E52E71);
     color: #333;
 }
 
-.form-header p {
-    font-size: 0.9rem;
-    color: #777;
-    margin: 10px 0 20px;
+.login-page .form-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-/* Form Group */
-.form-group {
+.login-page .form-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #E52E71;
+}
+
+.login-page .form-header p {
+    font-size: 0.9rem;
+    color: #555;
     margin-bottom: 20px;
+}
+
+.login-page form {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.login-page .form-group {
+    margin-bottom: 15px;
     text-align: left;
 }
 
-.form-group label {
-    font-size: 0.9rem;
-    color: #555;
+.login-page label {
+    display: block;
+    font-weight: bold;
+    color: #333;
     margin-bottom: 5px;
-    display: inline-block;
 }
 
-.form-group input {
+.login-page input {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
-    transition: border 0.3s ease;
-}
-
-.form-group input:focus {
-    border: 1px solid #E52E71;
     outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Button */
-.btn-primary {
+.login-page input:focus {
+    border-color: #E52E71;
+    box-shadow: 0 0 5px rgba(229, 46, 113, 0.3);
+}
+
+.login-page .btn {
+    display: block;
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     font-size: 1rem;
-    background: #FF8A00;
+    background: #E52E71;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.btn-primary:hover {
-    background: #E52E71;
+.login-page .btn:hover {
+    background: #FF8A00;
+    transform: translateY(-2px);
 }
 
-/* Extra Links */
-.extra-links p {
-    margin: 15px 0 5px;
-    font-size: 0.8rem;
+.login-page .extra-links {
+    margin-top: 20px;
 }
 
-.extra-links a {
+.login-page .extra-links p {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.login-page .extra-links a {
     color: #E52E71;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.extra-links a:hover {
-    text-decoration: underline;
+.login-page .extra-links a:hover {
+    color: #FF8A00;
+}
+
+/* Responsive Design for Login Page */
+@media (max-width: 480px) {
+    .login-page .form-container {
+        padding: 15px;
+    }
+
+    .login-page .form-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .login-page .btn {
+        font-size: 0.9rem;
+    }
 }
